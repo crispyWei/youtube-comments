@@ -11,7 +11,7 @@ import { catchError, tap, map, filter, toArray, concatMap, retry} from 'rxjs/ope
 export class YoutubeDataApiService {
 
   //API Key
-  private apiKey      = "";
+  private apiKey      = "AIzaSyCrhQceLNflnlI6e0mQGzrEJmsbNL8Cgqo";
   //Youtube Data API
   private commentsApi = "https://www.googleapis.com/youtube/v3/commentThreads";
   //欲查詢網址
