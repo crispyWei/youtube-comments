@@ -1,0 +1,33 @@
+<div class="row p-3">
+    <table class="table caption-top">
+      <caption class="h5">留言列表</caption>
+      <thead>
+        <tr>
+          <th scope="col">顯示名稱</th>
+          <th scope="col">留言內容</th>
+          <th scope="col"><fa-icon [icon]="faThumbsUp"></fa-icon></th>
+          <th scope="col">回覆數</th>
+          <th scope="col">發表時間</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let channel of channels">
+          <td class="col-md-3">
+            <img [src]="channel.snippet.topLevelComment.snippet.authorProfileImageUrl" alt="Avatar" class="avatar rounded-circle me-2">
+            <a [href]="channel.snippet.topLevelComment.snippet.authorChannelUrl" class="link-primary" target="_blank">{{channel.snippet.topLevelComment.snippet.authorDisplayName}}</a>
+          </td>
+          <td class="col-md-5 align-middle" >
+            <span [innerHTML]="channel.snippet.topLevelComment.snippet.textOriginal | hightlightText:filterWord"></span>
+          </td>
+          <td class="col-md-1 align-middle">{{channel.snippet.topLevelComment.snippet.likeCount}}</td>
+          <td class="col-md-1 align-middle">
+            <span class="link-primary" style="cursor: pointer;" (click)="getReplyMsg(replyModal, channel.snippet.topLevelComment.id)">{{channel.snippet.totalReplyCount}}</span>
+          </td>
+          <td class="col-md-2 align-middle">{{channel.snippet.topLevelComment.snippet.updatedAt}}</td>
+        </tr>
+      </tbody>
+    </table>
+</div>
+<ng-template #replyModal let-modal>
+    <app-comments-reply-list [modal]="modal" [replyComments]="replyComments"></app-comments-reply-list>
+</ng-template>

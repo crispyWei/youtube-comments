@@ -1,0 +1,29 @@
+<div class="modal-header">
+    <h5 class="modal-title" id="replyModalLabel">回覆訊息列表</h5>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+</div>
+<div class="modal-body">
+    <table class="table caption-top">
+    <thead>
+        <tr>
+        <th scope="col">顯示名稱</th>
+        <th scope="col">留言內容</th>
+        <th scope="col"><fa-icon [icon]="faThumbsUp"></fa-icon></th>
+        <th scope="col">發表時間</th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let comment of replyComments">
+        <tr *ngFor="let content of comment.replies.comments">
+            <td class="col-md-4">
+            <img [src]="content.snippet.authorProfileImageUrl" alt="Avatar" class="avatar rounded-circle me-2">
+            <a [href]="content.snippet.authorChannelUrl" class="link-primary" target="_blank">{{content.snippet.authorDisplayName}}</a>
+            </td>
+            <td class="col-md-5 align-middle">{{content.snippet.textOriginal}}</td>
+            <td class="col-md-1 align-middle">{{content.snippet.likeCount}}</td>
+            <td class="col-md-2 align-middle">{{content.snippet.updatedAt}}</td>
+        </tr>
+        </ng-container>
+    </tbody>
+    </table>
+</div>
