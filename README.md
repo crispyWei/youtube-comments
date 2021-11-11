@@ -1,4 +1,3 @@
-### Youtube 評論區
 
 此專案利用Youtube Data API 抓取Youtube留言區訊息，並提供關鍵字過濾功能。
 
@@ -13,8 +12,8 @@
 
 ### 執行畫面截圖
 
-<img src="/images/readme-image-1.png" alt="text" width="400"/>
+<img src="/images/readme-image-1.png" alt="text" width="800"/>
 
 ## 關鍵字過濾
 
-<img src="/images/readme-image-2.png" alt="text" width="400"/>
+<img src="/images/readme-image-2.png" alt="text" width="600"/>
